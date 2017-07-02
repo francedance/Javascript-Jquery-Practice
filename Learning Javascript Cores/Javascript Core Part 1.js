@@ -2,7 +2,7 @@
 Warning: Do not run this javascript file directly since these are just examples, it is not completely functioning program! 
 Organized by Jae Hyuk Oh
 
-Covers Core Javascript: 
+Covers Core Javascript :
 	+Expression Statements
 	+Compound and Empty Statements
 	+Empty Statements
