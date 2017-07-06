@@ -11,4 +11,5 @@
 ### What this example shows it that you can simply change images and contents of HTML based on user's choice from a menu! If a user selectes "Alien" from a menu, it then loads Alien image to a user. This kind of methods are used in ecommerce websites where a shopper clicks on a color then it shows a picture of corresponding colored t-shirt or items. 
 
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/10924864/27935646-5b542204-627a-11e7-90c4-38f04ec0250b.gif)
+![ezgif com-video-to-gif 1](https://user-images.githubusercontent.com/10924864/27935921-15e2ecd0-627c-11e7-890e-e3c264784f1e.gif)
+
