@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jquery Practice</title>
+<style>
+	body {
+		background-color: black;
+	}
+	
+</style>
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+
+<script id="kill" type="text/template">
+	<h1>DO YOU WANT TO KILL ME??</h1>
+</script>
+
+
+<script>
+	$(document).ready(function(){
+		$('#monsters').selectmenu({
+			change: function(evt, ui) {
+				var newImage;
+				var src = 'css/images/';
+				if (ui.item.label === 'Chucky') {
+					newImage = 'chucky.png';
+					src = src + newImage;
+				}else if (ui.item.label === 'Alien'){
+					newImage = 'alien.jpg';
+					src = src + newImage;
+				}else {
+					newImage = 'predator.jpg';
+					src = src + newImage;
+				}
+				$('#monster').attr('src', src);
+			}
+		
+		});
+	
+	$('.ui-selectmenu-menu').css("background","black");
+	
+	});
+</script>
+
+</head>
+<body>
+
+	<div>
+	
+	<select id="monsters"> 
+		<option value="chucky">Chucky</option>
+		<option value="alien">Alien</option>
+		<option value="predator">Predator</option>
+	</select>
+	</div>
+	
+	</br>
+	
+	<div>
+	<img width="500" height="350" id="monster" src="css/images/chucky.png">
+	</div>
+	
+	
+</body>
+
+
+</html>
