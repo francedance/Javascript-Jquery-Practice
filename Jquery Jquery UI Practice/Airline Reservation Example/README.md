@@ -10,5 +10,7 @@
 ### This example contains some useful Jquery UI widgets to imitate a look of an airline flight reservation screen. 
 
 
+![ezgif com-crop 3](https://user-images.githubusercontent.com/10924864/27964505-7fb73ee2-6306-11e7-9592-863e5fd36233.gif)
+
 
 
