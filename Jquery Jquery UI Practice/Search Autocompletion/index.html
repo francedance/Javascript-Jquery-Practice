@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Jquery Practice</title>
+<style>
+
+	body{
+		background-color:black;
+	
+	}
+	
+	h1 {
+		color: red;
+		text-align: center;
+	}
+
+	#search {
+		background-image: url('css/images/bg.jpeg');
+		background-repeat: no-repeat;
+		width: 900px;
+		height: 900px;
+		margin: 0 auto;
+		
+	
+	}
+	
+	#monsterSearch{
+		width: 300px;
+		height: 30px;
+		display: block;
+		left: 350px;
+		position: absolute;
+		
+	}
+	
+	#searchbttn {
+		color: red;
+		width: 300px;
+		height: 30px;
+		display: block;
+		right: 400px;
+		position: absolute;
+		
+		
+	}
+	
+</style>
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<script src="js/monsters.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+
+
+<script>
+	$(document).ready(function(){
+		
+		$('#monsterSearch').autocomplete({source: monsters });
+	
+	
+	});
+	
+</script>
+
+</head>
+<body>
+
+	<div id="search">
+	
+			<h1>Search Monsters: </h1>
+			
+			<br/>
+			
+			<input type="text" id="monsterSearch" name="monsterSearch">
+			<span>
+			<button id="searchbttn">Roaaaar~~!</button>
+			</span>
+			
+			
+	</div>
+	
+	
+	
+</body>
+
+
+</html>
