@@ -10,5 +10,5 @@
 
 
 
-![ezgif com-video-to-gif 1](https://user-images.githubusercontent.com/10924864/27935921-15e2ecd0-627c-11e7-890e-e3c264784f1e.gif)
+![ezgif com-crop 2](https://user-images.githubusercontent.com/10924864/27943380-b8988054-62ac-11e7-99c8-f4f5a9c58a98.gif)
 
