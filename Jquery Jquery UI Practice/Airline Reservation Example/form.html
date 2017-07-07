@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Make a Reservation</title>
+<link href="css/jquery-ui.min.css" rel="stylesheet">
+<link href="css/form.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/airports.js"></script>
+
+<style>
+
+	body {
+		background-color: black;
+	}
+
+	header, h1{
+		font-weight: bold;
+		font-size: 35px;
+		text-align:left;
+		color: white;
+	}
+	
+	label, p {
+		font-weight: bold;
+		font-size: 18px;
+		color: yellow;
+		display: inline;
+		
+	}
+	
+	form {
+		display: block;
+		margin: 0 auto;
+		
+	
+	}
+	
+	#departure, #airport, #meal, #bags, #seatTypes {
+		display: block;
+		position: relative;
+		
+	}
+	
+	#departure {
+		width: 300px;
+	
+	}
+	
+	#airport{
+		width: 300px;
+	
+	}
+	
+	
+	
+
+
+
+
+</style>
+
+<script>
+$(document).ready(function() {
+  
+	$('#departure').datepicker({
+		minDate: 0,
+		maxDate: '+1y'
+	});
+	
+	$('#airport').autocomplete({source: airports});
+	
+	$('#meal').selectmenu({width: 200});
+	
+	$('#bags').buttonset();
+	$('#seatTypes').buttonset();
+	$('#next').button();
+  
+}); // end ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<header>
+		Jae Airline 
+	</header>
+	
+	<div class="content">
+		<div class="main">
+			<h1>Reserve your flight! </h1>
+			<form>
+			
+			  <div style="display: block;margin: 0 auto">
+			    <label for="departure" class="label">Pick a departure date</label>
+			    <input type="text" id="departure" name="departure">
+			  </div>
+			  
+			  <br/>
+			  
+			  <div style="display: block; margin: 0 auto">
+			    <label for="airport" class="label">Find an airport</label>
+			    <input type="text" id="airport" name="airport">
+			  </div>
+			  
+			  <br/>
+			  
+			  <div style="display: block; margin: 0 auto">
+			  	<label for="meal" class="label">Meal Options</label>
+			  	<select name="meal" id="meal">
+			  		<option>No meal</option>
+			  		<option>Vegan</option>
+			  		<option>Gluten Free</option>
+			  		<option>Vegetarian</option>
+			  		<option>Meat eater</option>
+			  	</select>
+			  </div>
+			  
+			  <br/>
+			  
+			  <div style="display: block; margin: 0 auto" id="bags">
+			  
+			    <label class="label">Number of bags to check</label>
+				
+				
+			    <input type="radio" id="none" name="bags" checked="checked">
+      		<label for="none">0</label>
+ 
+      		<input type="radio" id="one" name="bags">
+      		<label for="one">1</label>
+ 
+      		<input type="radio" id="two" name="bags">
+      		<label for="two">2</label>
+      		<span id="bagFee"></span>
+				
+			  </div>
+			  
+			  <br/>
+			  
+        <div style="display: block; margin: 0 auto" id="seatTypes">
+          <label class="label">Type of seat you'd like</label>
+          <input type="checkbox" id="aisle" name="aisle">
+          <label for="aisle">Aisle</label>
+ 
+          <input type="checkbox" id="window" name="window">
+          <label for="window">Window</label>
+ 
+          <input type="checkbox" id="exit" name="exit">
+          <label for="exit">Exit Row</label>
+
+          <input type="checkbox" id="any" name="any">
+          <label for="any">Any seat</label>
+        </div>
+		
+		<br/>
+		
+			  <div style="display: block; margin: 0 auto">
+				  <button id="next" style="margin: 30px 210px">Continue reservation process</button>
+			  </div>
+			</form>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>
