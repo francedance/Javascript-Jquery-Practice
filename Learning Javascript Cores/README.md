@@ -34,8 +34,28 @@
 
 # Covers Javascript Core of:
 	
-- [Jumps (labeled statements, break, continue,  return, throw, try/catch/finally](#jumps)
-- [Miscellaneous Statements (with, debugger, 'use strict')](#miscellaneous-statements)
+- [Jumps](#jumps)
+
+	[Labeled Statement](#labeled-statement)
+	
+	[Break](#break)
+	
+	[Continue](#continue)
+	
+	[Return](#return)
+	
+	[Throw](#throw)
+	
+	[Try-Catch-Finally](#try-catch-follow)
+	
+- [Miscellaneous Statements](#miscellaneous-statements)
+
+	[With](#with)
+	
+	[Debugger](#debugger)
+	
+	[Use Strict](#use-strict)
+	
 - [Summary of JavaScript Statements](#summary-statements)
 
 ## Expression Statements
@@ -161,7 +181,7 @@
 
 ### **If**
 
- **General rule of simple if condition followed by statement.**
+ **General syntax of simple if condition followed by statement.**
 
 ```Javascript
 
@@ -180,7 +200,7 @@
 
 ### **If else**
 
- **General rule of simple if..else.. condition** 
+ **General syntax of simple if..else.. condition** 
  
 ```Javascript
 
@@ -202,7 +222,7 @@
 ```
 ### **If else if**
 
- **General rule of simple if..else if.. condition**
+ **General syntax of simple if..else if.. condition**
 	
 ```Javascript
 
@@ -231,7 +251,7 @@
 ```
 ### **Switch**
 
- **General rule of simple switch statement**
+ **General syntax of simple switch statement**
 	
 ```Javascript
 
@@ -285,7 +305,7 @@
 
 ### While
 
-**General rule of while loop**
+**General syntax of while loop**
 
 ```Javascript
 	while (expression) 
@@ -319,7 +339,7 @@
 
 ### Do While
 
-**General rule of do..while loop.**
+**General syntax of do..while loop.**
 
 ```Javascript
 	do 
@@ -366,7 +386,7 @@
 
 ### For 
 
-**General rule of for loop**
+**General syntax of for loop**
 
 ```Javascript
 
@@ -420,21 +440,21 @@ initialize;
 
 **First round of loop**
 
-	>i = 0 ; j = 10 
+	i = 0 ; j = 10 
 	
 **therefore**
 
-	> sum - sum + (0 * 10)
+	sum - sum + (0 * 10)
 	
 **which is 0, then i becomes 1 and j becomes 9 for next round.
 	
 **Second round of loop**
 
-	>i = 1; j = 9
+	i = 1; j = 9
 	
 **therefore**
 
-	> sum = sum (currently the value if 0 from the first round) + (1*9)
+	sum = sum (currently the value if 0 from the first round) + (1*9)
 	
 **at this point sum = 9, then i become 2 and j becomes 8 for nexr round. And this pattern will repeat unti (i < 10) is met!**
 
@@ -457,7 +477,7 @@ initialize;
 ```
 ### For In
 **It is used to loop through the properties of an object**
-**General rule of For In loop**
+**General syntax of For In loop**
 
 ```Javascript
 	for(variable in object)
@@ -491,16 +511,397 @@ initialize;
 ```
 **This will print out whole lists of drink**
 
-	>coffee: Espresso, Americano, Latte
+	coffee: Espresso, Americano, Latte
 	alcohol: vodka, whiskey, rum, wine
 	juice: orange, peach, strawberry
+	
+	
+## Jumps
 
+** General ideas of Jump statements: **
+**Jumps in javascript causes the javascript interpreter to jump to a new location in the source code. I believe that using Jumps in a software development is important to debug and track flows.**
 
+	
+**'break' statement =  makes the interpreter jump to the end of a loop or other statement.**
+**'continue' statement = makes the interpreter skip the rest of the body of a loop and jump back to the top of a loop to begin a new iteration.**
 
+**Javascript allows statements to be 'named', or 'labeled', and the 'break' and 'continue' can identify the target loop or other statement label.** 
 
+**'return' statement = makes the interpreter jump from a function invocation back to the code that invoked it and also supplies the value for the invocation.**
 
+**'throw' statement = raises, or "throws", an exception and is designed to work with the 'try'/'catch'/'finally' statement, which establishes a block of exception handling code.**
 
-			 
+## Labeled statement
+
+**General syntax of labeled statement**
+
+```Javascript 
+	
+	identifier: statement 
+	
+```
+**By labeling a statement, you give it a name that you can use to refer to it elsewhere in your program (somehow like a function name).**
+
+**Example of labeled statement with 'continue'**
+
+```Javascript
+	
+	//mainloop is the identifier
+	mainloop: while(token != null) {
 		
+		// Code omitted...
+		continue mainloop; // Jump to the next iteration of the named loop
+		// More code omitted...
+	}
+	
+```
+```Javascript
+
+	mainloop
+	
+```	
+**is the identifier for while loop**
+
+```Javascript
+	continue mainloop;
+```
+
+**Means jump to the next iteration of the named loop (which is 'mainloop')**
+
+## Break 
+
+**Use this inside a loop to jump!**
+
+```Javascript
+
+	break;
+
+```
+**You can use it with label!** 
+
+```Javascript
+
+	break mainloop;
+```
+
+**Example of 'break' statement in use**
+
+```Javascript
+
+	for(var i = 0 ; i < a.length; i++) {
+		if( a[i] == target) 
+			break;
+	}
+
+```
+**Example of 'break' statement + identifier (AKA label) in use**
+
+```Javascript
+
+	mainloop: while(token != null) { 
+
+	// 'mainloop' is the identifier in this case. As long the word isn't reserved by javascript, it's fine. 
+		
+		if(token == target) 
+			break mainloop; //this will exit the loop
+		
+	}
+	
+```
+
+## Continue
+
+**Continue statement is similar to the break statement. Instead of exiting a loop, however, continue restarts a loop at the next iteration. 'continue' statement**
+
+**General syntax of 'continue' statement**
+
+```Javascript
+
+	continue;
+```
+**Just like 'break', you can also use 'continue' with label, for example**
+
+```Javascript
+
+	continue mainloop;
+```
+**'Continue' statement in use**
+
+```Javascript
+
+	for(i = 0 ; i < data.length; i++){
+			if (!data[i]) continue; // Can't proceed with undefined data
+			total += data[i];	
+	}
+
+```
+## Return
+
+**Recall that function invocations are expressions and that all expressions have values.**
+**'return' statement within a function specifies the value of invocations of that functions.**
+
+**General syntax of 'return' statement**
+
+```Javascript
+	
+	return expression;
+
+```
+**If 'return' statement appear anywhere else but within the body of a function, it is a syntax error!!**
+**example of 'return' statement in use**
+
+```Javascript
+
+	function square(x) { 
+	
+		/*It is a function who's name is square. It takes in a value 'x' from a caller and simply returns the square value of 'x' back to its caller!*/
+		
+		return x*x;
+	}
+	
+	square(2);
+
+```
+**The value of**
+
+	square(2) 
+
+**is**
+
+	4
+
+**If for example, you do not include 'return' within a body of a function, then the value of caller is simply undefined. It's up to your choice to use 'return' statement. Usually, I will use 'return' when I need a to pass a value to a function for computation purposes or want to continuously use a value after function through out a program. Let's say, if a return value in a function is important to proceed a next function, I will store the return value like var x = square(x) , and use 'x' in future programming**
+
+**Some more example**
+
+```Javascript
+
+	function display_object(o) {
+	
+		// Return immediately if the argument is null or undefined
+		if (!o) return;
+		// Rest of function goes here...
+	}
+	
+
+```
+## Throw
+
+**An exception is a signal that indicates that some sort of exceptional condition or error has occured. To 'throw' an exception is to signal such an error or exceptional condition. To 'catch' an exception is to handle it to take whatever actions are necessary or appropriate to recover from the exception.In javascript, exceptions are thrown whenever a runtime error occurs and whenever the program explicitly throws one using the 'throw' statment. Exceptions are caught with the 'try'/'catch'/'finally' statements**
+
+**General syntax of 'throw' statement**
+
+```Javascript
+	
+	throw expressions;
+
+```
+**'throw' statement in use**
+
+```Javascript
+
+	function factorial(x) {
+		// If the input argument is invalid, throw an exception!
+		if (x < 0) 
+			throw new Error("x must not be negative");
+		//Otherwise, compute a value and return normally
+		for(var f = 1; x > 1 ; f *= x, x--) /* empty */;
+		return f;
+		
+	}
+
+```
+	Error 
+	
+**Error object has a 'name' property that specifies the type of error and a 'message' property that holds the string passed to the constructor function.**
+
+## Try-Catch-Follow
+
+**'try'-'catch'-'finally' are javascript's exception handling mechanism.**
+
+**'try' : definies the block of code whose exceptions are to be handled**
+
+**'catch' : which is a block of statements that are invoked when an exception occurs anywhere within the 'try' block**
+
+**'finally' : contains cleanup code that is guaranteed to be executed, regardless of what happens in the 'try' block**
+
+**The following code illustrates the syntax and purpose of the try/catch/finally statement:**
+			 
+```Javascript
+	try {
+			/*
+			Normally, this code runs from the top of the block to the bottom without problems.
+			But it can sometimes throw an exception, either directly, with a throw statement, or indirectly, by calling
+			a method that throws an exception
+			*/
+		}
+		catch (e) {
+			/* 
+			The statements in this block are executed if, and only if, the try block throws an exception.
+			These statements can use the local variable 'e' to refer to the Error object or other value that was thrown.
+			This block may handle the exception somehow, may ignore the exception by doing nothing, or may rethrow the exception with throw.
+			*/
+		}
+		finally {
+			/*
+			This block contains statements that are always executed, regardless of what happens in the try block.
+			They are executed whether the try block terminates:
+				1) normally, after reaching the bottom of the block
+				2) because of a break, continue, or return statement
+				3) with an exception that is handled by a catch clause aboce
+				4) with an uncaught exception that is still propagating
+			*/
+		}
+
+
+```
+
+**An example of try-catch-finally in use**
+
+```Javascript
+
+	try {
+			//Ask the use to enter a number
+			var n = Number(prompt("Please enter a positice integer", ""));
+			// Computer the factorial of the number, assuming the input is valid
+			var f = factorial(n); //Use the factorial function we've created up with 'throw new Error("x must not be negative")'
+			//Display the result;
+			alert(n + "! = " + f);
+		}
+		catch (ex) { //If the user's input was not valid, we end up here
+			alert(ex); //Tell the user what the error is
+		}
+		//'fianlly' is optionals and not used often as 'catch'
+
+```
+## Miscellaneous Statements
+
+## With
+
+**'with' statement is used to temporarily extend the scope chain.**
+**General syntax of 'with' statement**
+
+```Javascript
+
+	with(object)
+		statement
+
+```
+**with' statement is forbidden under 'strict mode' and should be deprecated in non-strict mode: avoid using it whenever possible. Javascript code that uses 'with' is difficult to optimize and is likely to run more slowly than the equivalent code written without the 'with' statement**
+
+**'with' statement in use**
+
+```Javascript
+
+	with(document.forms[0]) {//Access form elements directly here. For example:
+		name.value = "";
+		address.value = "";
+		email.value = "";
+		}
+
+```
+**Using 'with' statement as above will give you a shortcut of writing**
+
+```Javascript
+	document.forms[0].address.value = "";
+	document.forms[0].name.value = "";
+```
+**multiple times :) BUT there's another shortcut too!**
+
+```Javascript
+	
+	var f = document.forms[0];
+	f.name.value = "";
+	f.address.value = "";
+	f.email.value = "";
+
+```
+## Debugger
+
+**'debugger' statement normally does nothing. In practice, this statement acts like a breakpoint: execution of javascript code stops and you can use the 'debugger' to print variables' values, examine the call stack, and so on. Suppose, for example, that you are getting an exception in your function f() because it is being called with an undefined argument, and you can't figure out where this call is coming from. To help you in debugging this problem, you might alter f() so that it begines like this:**
+
+```Javascript
+
+	function f(o) { //Temporary line for debugging purpose
+		if(o === undefined) 
+			debugger;//The rest of the function goes here
+		
+	}
+```
+**Once 'debugger' is triggered, a web browser tends to open developer's tool like Firebug for Firefox and Developer's console for Chrome.**
+
+## Use Strict
+
+**'use strict' is generally used to provide stronger error checking and increase security.**
+**Here is the few differences between 'non-strict' vs. 'strict':**
+
+	- The 'with' statement is not allowed in stric mode
+	
+	- In strict mode, all variables must be declared: a ReferenceError is thrown if you assign a value to an identifier that is not a declared variable,function, function parameter, 'catch' clause parameter, or property of the global object.
+	
+	- In strict mode, functions invoked as functions (rather than as methods) have a 'this' value of undefined. (In non-strict mode, functions invoked as functions are always passed the global object as their 'this' value). 
+
+**Try this**
+
+```Javascript
+
+	var hasStrictMode = function(){
+		"use strict";
+		return this===undefines
+	}();
+
+```
+## Summary of JavaScript Statements
+
+	Statement	Syntax		Purpose
+	---------------------------------------
+	break		break [label];		"Exit from the innermost loop or 'swith' or from named enclosing statement"
+
+	case		case expressions:	"Label a statement within a 'switch'"
+
+	continue	continue [label];	"Begin next iteration of the innermost loop or the named loop"
+
+	debugger	debugger;		"Debugger breakpoint"
+
+	default		default:		"Label the default statement within a 'switch'"
+
+	do/while	do statement 		"An alternative to the 'while' loop"
+			while (expression)	
+
+	empty		;			"Do nothing"
+
+	for		for(init;test;incr)	"An easy-to-use loop"
+			statement
+
+	for/in		for (var in object)	"Enumerate the properties of object"
+			statement
+			
+	function	function name ([param[,..]])	"Declare a function named name"
+			{body}
+
+	if/else		if (expr) statement1	"Execute statement1 or statement2"
+			else statement2
+
+	label		label: statement;	"Give statement the name label"
+
+	return		return [expression];	"Return a value from a function"
+
+	switch		switch (expression)	"Multiway branch to case or default: labels"
+			{statements}
+
+	throw		try { statements}	"Handle exceptions"
+			[catch { handler statement}]
+			[finally {cleanup statements}]
+			
+	use strict	"use strict";		"Apply strict mode restrictions to script function"
+
+	var		var name [ = expr] [,...];	"Decalre and initialize one or more variables"
+
+	while		while (expression)	"A basic loop construct"
+			statement
+			
+	with		with (object) statement		"Extend the scope chain(forbidden in strict mode)"
+
+
 
 			
