@@ -70,11 +70,23 @@
   
   //use this when you have a function that requires reading a value of Object much safer I say.
   
-  
-  
- 
-  
-  
-  
+
+
+```
+**Customize and Configure your own object properties**
+
+```Javascript
+
+  var p = Object.defineProperties({}, {
+    x: { value: 1, writable: true, enumerable: true, configurable: true},
+    y: { value: 1, writiable: true, enumerable: true, configurable: true},
+    r: {
+         get: function() { return Math.sqrt(this.x * this.x + this.y * this.y) },
+         emumerable: true,
+         configurable: true
+        }
+     });
+
+
 
 ```
