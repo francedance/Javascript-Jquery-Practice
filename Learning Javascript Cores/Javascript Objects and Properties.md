@@ -90,3 +90,13 @@
 
 
 ```
+**Use '.isPrototypeOf()' to determine whether one object is the prototype of another object.**
+
+```Javascript
+
+ var p = {x:1};
+ var o = Object.create(p); //Create an object with that prototype
+ p.isPrototypeOf(o) // true: o inherits from p
+ Object.prototype.isPrototypeOf(p) // true: p inherits from Object.prototype
+
+```
